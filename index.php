@@ -1,3 +1,3 @@
-<?php include_once("includes/Header.php"); ?>
+<?php include("includes/Header.php"); ?>
 <h1>Hello, world!</h1>
-<?php include_once("includes/Footer.php"); ?>
+<?php include("includes/Footer.php"); ?>
