@@ -1,9 +1,19 @@
 img {
-	border: none;
+    border: none;
 }
 
 #navbar {
     border-radius: 0px;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
+}
+
+#logo {
+    color: #ffffff;
+}
+
+#avatar {
+    margin-top: -11px;
+    margin-bottom: -6px;
+    padding-right: 5px;
 }
