@@ -2,10 +2,16 @@ img {
 	border: none;
 }
 
-#navbar {
+#nav {
     border-radius: 0;
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;
+}
+
+#avatar {
+    margin-top: -12px;
+    margin-bottom: -6px;
+    padding-right: 5px;
 }
 
 .selector {
