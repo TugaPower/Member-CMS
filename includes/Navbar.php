@@ -6,7 +6,7 @@
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img id="nav-avatar" src="https://minotar.net/helm/<?php echo $user ?>/32.png"><?php echo $user ?> <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle nav-user" data-toggle="dropdown"><?php echo $user ?> <span class="caret"></span><img src="https://minotar.net/helm/<?php echo $user ?>/50.png"></a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="#">Configurações</a></li>
                     <li class="divider"></li>

@@ -7,13 +7,32 @@ img {
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;
 }
+.nav-user {
+	padding-right: 55px !important;
+}
+.nav-user img {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	top: 0;
+    right: 0;
+	overflow: hidden;
+	opacity: .8;
+}
+.nav-user:hover img {
+	opacity: 1;
+}
 
-#nav-avatar {
-	width: 32px;
-	height: 32px;
-    margin-top: -12px;
-    margin-bottom: -6px;
-    padding-right: 5px;
+.navbar-header .fa-power-off {
+	transition: transform .4s;
+	-moz-transition: transform .4s;
+	-webkit-transition: transform .4s;
+}
+.navbar-header:hover .fa-power-off {
+	transform: rotate(-360deg);
+	-ms-transform: rotate(-360deg); /* IE 9 */
+	-moz-transform: rotate(-360deg); /* Firefox */
+	-webkit-transform: rotate(-360deg); /* Chrome, Safari, Opera */
 }
 
 .container {

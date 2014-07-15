@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo WEBSITE_TITLE ?></title>
+    <link href="favicon.ico" rel="shortcut icon">
 
     <!-- Main CSS file -->
     <link href="css/style.css" rel="stylesheet">
