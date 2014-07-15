@@ -1,11 +1,12 @@
 <?php include("./app/Constants.php"); ?>
 <!DOCTYPE html>
-<html lang="pt">
+<html>
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Language" content="pt">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo WEBSITE_TITLE; ?></title>
+    <title><?php echo WEBSITE_TITLE ?></title>
 
     <!-- Main CSS file -->
     <link href="css/style.css" rel="stylesheet">
