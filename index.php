@@ -1,3 +1,8 @@
-<?php include("includes/Header.php"); ?>
-<h1>Hello, world!</h1>
-<?php include("includes/Footer.php"); ?>
+<?php
+    include("includes/Header.php");
+    echo "<div class=\"container\">";
+
+    include("stats.php");
+
+    echo "</div>";
+    include("includes/Footer.php");

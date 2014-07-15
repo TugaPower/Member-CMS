@@ -8,10 +8,16 @@ img {
 	-webkit-border-radius: 0;
 }
 
-#avatar {
+#nav-avatar {
+	width: 32px;
+	height: 32px;
     margin-top: -12px;
     margin-bottom: -6px;
     padding-right: 5px;
+}
+
+.container {
+	width: 85% !important;
 }
 
 .selector {

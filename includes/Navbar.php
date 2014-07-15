@@ -1,3 +1,4 @@
+<?php $user = "joaopms" // Temporary ?>
 <nav id="nav" class="navbar navbar-inverse" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -5,13 +6,11 @@
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img id="avatar" src="https://avatars1.githubusercontent.com/u/4002159?s=32"></img>joaopms <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img id="nav-avatar" src="https://minotar.net/helm/<?php echo $user ?>/32.png"><?php echo $user ?> <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
+                    <li><a href="#">Configurações</a></li>
                     <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">Sair</a></li>
                 </ul>
             </li>
         </ul>

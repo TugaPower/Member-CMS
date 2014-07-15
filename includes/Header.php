@@ -1,5 +1,5 @@
-<?php include("./app/Constants.php"); ?>
 <!DOCTYPE html>
+<?php include("./app/Constants.php"); ?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -19,11 +19,13 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <!-- jQuery (need to be loaded before the end of the page because some pages use it's functionality earlier) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
-<?php include_once("Navbar.php"); ?>
+<?php include("Navbar.php"); ?>
