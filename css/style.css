@@ -7,9 +7,11 @@ img {
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;
 }
+
 .nav-user {
 	padding-right: 55px !important;
 }
+
 .nav-user img {
 	position: absolute;
 	width: 50px;
@@ -17,8 +19,9 @@ img {
 	top: 0;
     right: 0;
 	overflow: hidden;
-	opacity: .8;
+	opacity: .9;
 }
+
 .nav-user:hover img {
 	opacity: 1;
 }
@@ -46,12 +49,14 @@ img {
 	overflow: auto;
 	-webkit-overflow-scrolling: touch; /* For iOS 5+ */
 }
+
 .avatar {
 	position: relative;
 	display: inline-block;
 	width: 96px;
 	height: 96px;
 }
+
 .avatar img {
 	width: 96px;
 	height: 96px;
@@ -59,9 +64,11 @@ img {
 	opacity: .9;
 	transition: opacity .1s;
 }
+
 .avatar img:hover {
 	opacity: 1;
 }
+
 .avatar span {
 	background-color: rgba(0,0,0,.4);
 	color: #ffffff;

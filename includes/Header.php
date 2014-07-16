@@ -14,7 +14,6 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="css/font-awesome.min.css" rel="stylesheet">
