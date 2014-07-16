@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php include("./app/Constants.php"); ?>
+<?php include("./app/Constants.php") ?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -26,8 +26,9 @@
 
     <!-- jQuery (need to be loaded before the end of the page because some pages use it's functionality earlier) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/util.js"></script> <!-- Import our utility script -->
 </head>
 <body>
 <?php include("Navbar.php"); ?>
-<?php include("Sidebar.php"); ?>
-<div class="content">
+<ul id="sidebar" class="nav nav-stacked"></ul>
+<div id="content">
