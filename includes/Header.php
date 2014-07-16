@@ -29,3 +29,5 @@
 </head>
 <body>
 <?php include("Navbar.php"); ?>
+<?php include("Sidebar.php"); ?>
+<div class="content">
