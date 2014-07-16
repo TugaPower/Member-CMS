@@ -49,7 +49,12 @@ function loadPage(page, target) {
 	var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() /* for IE7+, Firefox, Chrome, Opera, Safari */ : new ActiveXObject("Microsoft.XMLHTTP") /* for IE6, IE5 */;
 
 	xmlhttp.onreadystatechange = function() {
-		if(xmlhttp.readyState == 4 && xmlhttp.status == 200) document.getElementById(target).innerHTML = xmlhttp.responseText;
+		if(xmlhttp.readyState == 4) {
+			if(xmlhttp.status == 200) // The page was loaded successfully
+				document.getElementById(target).innerHTML = xmlhttp.responseText;
+			else // There was some error during the page load
+				loadPage('error.php', target);
+		}
 	}
 	xmlhttp.open("GET", page, true);
 	xmlhttp.send();
