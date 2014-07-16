@@ -1,1 +1,1 @@
-<h3 style="text-align: center">There was an error loading the page, try reloading it.</h3>
+<h3 style="text-align: center"><i class="fa fa-exclamation-triangle"></i> There was an error <?php if(isset($_GET["error"])) echo "<span style=\"text-emphasis: filled\">". $_GET["error"] ."</span>" ?> loading the page, try reloading it.</h3>
