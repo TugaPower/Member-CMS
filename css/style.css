@@ -13,6 +13,7 @@ img {
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;
 	margin-bottom: 0;
+	border-width: 0px 0px 1px 0px;
 }
 
 .nav-user {
@@ -35,21 +36,41 @@ img {
 
 #sidebar {
 	width: 10%;
-	min-width: 150px !important;
+	min-width: 200px !important;
 	height: 100%;
 	float: left;
+	background: #222;
+	border-right: 1px solid #080808;
 }
+
 #sidebar li {
 	cursor: context-menu;
+	border-left: 5px solid deepskyblue;
 }
+
+#sidebar a {
+	color: #777;
+	margin-left: -5px;
+}
+
+#sidebar a:hover {
+	color: #fff;
+	background: #222;
+	border-left: 5px solid cadetblue;
+}
+
 #sidebar .active {
-	background-color: #696969 !important;
+	border-left: 5px solid royalblue;
+	background: #080808;
 }
+
 #sidebar .active a {
-	color: white !important;
+	color: white;
+	margin-left: -5px;
 }
-#sidebar .active:hover a {
-	color: black !important;
+
+#sidebar .active:hover {
+	background: #080808 !important;
 }
 
 #content {
