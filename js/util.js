@@ -45,27 +45,19 @@ function loadSidebar(current) {
 	}
 }
 
-function loadPage(page, target) {
-	var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest() /* for IE7+, Firefox, Chrome, Opera, Safari */ : new ActiveXObject("Microsoft.XMLHTTP") /* for IE6, IE5 */;
-
-	xmlhttp.onreadystatechange = function() {
-		if(xmlhttp.readyState == 4) {
-			if(xmlhttp.status == 200) // The page was loaded successfully
-				document.getElementById(target).innerHTML = xmlhttp.responseText;
-			else // There was some error during the page load
-				loadPage('error.php?error=' + xmlhttp.status, target);
-		}
-	}
-	xmlhttp.open("GET", page, true);
-	xmlhttp.send();
-	document.getElementById(target).innerHTML = "<i class=\"fa fa-spinner fa-5x fa-spin loading\"></i>"
+function loadContent(url, container) {
+	var target = $(container);
+	target.html("<i class=\"fa fa-spinner fa-5x fa-spin loading\"></i>");
+	target.load(url, function(response, status, xhr) {
+		if(status === "error") target.html("<h3 style=\"text-align: center\"><i class=\"fa fa-exclamation-triangle\"></i> There was an error <span style=\"font-weight: bold\">" + xhr.status + " " + xhr.statusText + "</span> loading the page.</h3>");
+	});
 }
 
 function changePage(newPage, url) {
 	if(getCookie("current_page" == newPage)) return; // If already in the target page, exit function
 	setCookie("current_page", newPage);
 	setCookie("current_page_url", url);
-	loadPage(url, 'content');
+	loadContent(url, "#content");
 	loadSidebar(newPage); // Rebuilds the sidebar with the new content
 }
 
@@ -77,37 +69,6 @@ $(function() { // Store every element after the page is loaded for later use
 	var url = getCookie("current_page_url");
 	console.log("Loading page " + page + " (" + url + ")");
 
-	loadPage(url, 'content'); // Loads the first player on the array list
+	loadContent(url, '#content'); // Loads the first player on the array list
 	loadSidebar(page);
 });
-
-/* Stats */
-function load(player) {
-	console.log("Loading " + player + " stats");
-	skin.src = "https://minotar.net/helm/" + player + "/96.png";
-	name.innerHTML = player;
-	timePlayed.innerHTML = "0";
-	distanceTraveled.innerHTML = "0";
-	damageDealt.innerHTML = "0";
-	damageTaken.innerHTML = "0";
-	deaths.innerHTML = "0";
-	lastDeath.innerHTML = "0";
-	kills.innerHTML = "0";
-	killsMobs.innerHTML = "0";
-	killsPlayers.innerHTML = "0";
-}
-
-function loadStatElements() {
-	// Store every element of the stats page for later use
-	skin = document.getElementById("player-skin");
-	name = document.getElementById("player-name");
-	timePlayed = document.getElementById("time-played-info");
-	distanceTraveled = document.getElementById("distance-traveled-info");
-	damageDealt = document.getElementById("damage-dealt-info");
-	damageTaken = document.getElementById("damage-taken-info");
-	deaths = document.getElementById("deaths-info");
-	lastDeath = document.getElementById("last-death-info");
-	kills = document.getElementById("kills-info");
-	killsMobs = document.getElementById("kills-mobs-info");
-	killsPlayers = document.getElementById("kills-players-info");
-}
