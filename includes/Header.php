@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <?php include("./app/Constants.php") ?>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
