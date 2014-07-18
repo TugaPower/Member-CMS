@@ -27,6 +27,15 @@ function deleteCookie(key) {
 	document.cookie = key + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
 }
 
+/**
+ * Used on the the #sidebar & #content to make no vertical bar appear (because their height doesn't compensate for the navbar)
+ */
+function applyConsistentHeight() {
+	var newHeight = $(window).height() - ($("#nav").height() + 1);
+	$("#sidebar").height(newHeight);
+	$("#content").height(newHeight);
+}
+
 function loadSidebar(current) {
 	var tabs = [
 		{ name:"Home", url:"home.php" },
@@ -71,4 +80,10 @@ $(function() { // Store every element after the page is loaded for later use
 
 	loadContent(url, '#content'); // Loads the first player on the array list
 	loadSidebar(page);
+
+	applyConsistentHeight();
 });
+
+window.onresize = function(event) {
+	applyConsistentHeight();
+};

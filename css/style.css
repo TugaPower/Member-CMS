@@ -75,8 +75,8 @@ img {
 }
 
 #content {
-	overflow: auto;
 	height: 100%;
+	overflow: auto;
 }
 
 .navbar-header .fa-power-off {
