@@ -9,6 +9,7 @@
 
     // If received a POST, log us in!
     if(isset($_POST["nick"])) {
+        $_SESSION["isAdmin"] = true;
         $_SESSION["isAuthenticated"] = true;
         $_SESSION["username"] = $_POST["nick"];
 

@@ -36,24 +36,6 @@ function applyConsistentHeight() {
 	$("#content").height(newHeight);
 }
 
-function loadSidebar(current) {
-	var tabs = [
-		{ name:"Home", url:"home.php" },
-		{ name:"Profile", url:"profile.php" },
-		{ name:"Messages", url:"messages.php" },
-		{ name:"Stats", url:"stats.php" }
-	];
-
-	sidebar = document.getElementById("sidebar");
-	sidebar.innerHTML = ""; // Clear the sidebar
-	for(var i=0; i < tabs.length; i++) {
-		var element = "<li ";
-		if(current == tabs[i]["name"]) element += " class='active'";
-		element += "><a onClick='" + "changePage(\"{0}\",\"{1}\")".format(tabs[i]["name"],tabs[i]["url"]) + "'>" + tabs[i]["name"] + "</a></li>";
-		sidebar.innerHTML += element;
-	}
-}
-
 function loadContent(url, container) {
 	var target = $(container);
 	target.html("<i class=\"fa fa-spinner fa-5x fa-spin loading\"></i>");

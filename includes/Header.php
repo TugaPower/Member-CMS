@@ -27,6 +27,26 @@
     <!-- jQuery (need to be loaded before the end of the page because some pages use it's functionality earlier) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="js/util.js"></script> <!-- Import our utility script -->
+    <script type="application/javascript"> // Needs to be in a PHP capable page with a started session to be able to add an Admin page.
+        function loadSidebar(current) {
+            var tabs = [
+                { name:"Home", url:"home.php" },
+                { name:"Profile", url:"profile.php" },
+                { name:"Messages", url:"messages.php" },
+                { name:"Stats", url:"stats.php" }
+                <?php if($_SESSION["isAdmin"]) echo ", { name:\"Administration\", url:\"admin.php\" }"?>
+            ];
+
+            sidebar = document.getElementById("sidebar");
+            sidebar.innerHTML = ""; // Clear the sidebar
+            for(var i=0; i < tabs.length; i++) {
+                var element = "<li ";
+                if(current == tabs[i]["name"]) element += " class='active'";
+                element += "><a onClick='" + "changePage(\"{0}\",\"{1}\")".format(tabs[i]["name"],tabs[i]["url"]) + "'>" + tabs[i]["name"] + "</a></li>";
+                sidebar.innerHTML += element;
+            }
+        }
+    </script>
 </head>
 <body>
 <?php include("Navbar.php"); ?>

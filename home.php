@@ -1,8 +1,26 @@
-<iframe width="1280" height="720" src="//www.youtube.com/embed/P_MJbgO7SF0?rel=0" frameborder="0" allowfullscreen></iframe>
 <?php
-    $news = array(array("title" => "Título 1", "message" => "Text. More Text, blabla", "author" => "SandroHc", "date" => "idk"),
-                  array("title" => "Título 2", "message" => "Text 2. More Text 2, blabla", "author" => "joaopms", "date" => "idk"));
+    include("utils.php");
 
-    foreach($news as $current) {
-        echo "<div class=\"news\"><h1>". $current["title"] ."</h1>". $current["message"] ."<br><span class=\"author\">by ". $current["author"] ." on ". $current["date"] ."</span></div>";
+    $con = startDBConnection();
+    mysqli_select_db($con, "news");
+
+    $query = "SELECT * FROM $db_database.news ORDER BY date DESC";
+    $result = mysqli_query($con, $query) or die('Error: '. $con->error);
+
+    $news = array();
+    while($row = mysqli_fetch_array($result)) {
+        $entry = array();
+        $entry["title"] = $row["title"];
+        $entry["body"] = $row["body"];
+        $entry["date"] = $row["date"];
+        $entry["author"] = $row["author"];
+
+        $news[] = $entry;
     }
+    mysqli_free_result($result);
+    closeDBConnection();
+
+    foreach($news as $current)
+        echo "<div class=\"news\"><h1>". $current["title"] ."</h1>". $current["body"] ."<br><span class=\"author\">by ". $current["author"] ." on ". $current["date"] ."</span></div>";
+
+    if(sizeof($news) < 1) echo "No available news.";
