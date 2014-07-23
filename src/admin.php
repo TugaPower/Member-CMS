@@ -34,7 +34,18 @@
 ?>
 <h3>Add a new member</h3>
 <form name="register" action="util/register.php" method="post" onSubmit="document.register.password.value = $.md5(document.register.password.value)">
-	<input name="username" type="text" placeholder="Nick">
-	<input name="password" type="password" placeholder="Password">
-	<input type="submit" value="Add">
+	<div class="form-group">
+		<input name="username" type="text" class="form-control" placeholder="Username" value="<?php echo $_SESSION["username"] ?>" required>
+	</div>
+
+	<div class="form-group">
+		<div class="input-group">
+			<input name="password" type="text" class="form-control" placeholder="Senha" pattern=".{5,99}" required>
+			<span class="input-group-btn"><button type="button" class="btn btn-info" onClick="document.register.password.value = $.md5(Math.random())">Gerar senha</button></span>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<input class="btn btn-success" style="width: 100%" type="submit" value="Add">
+	</div>
 </form>
