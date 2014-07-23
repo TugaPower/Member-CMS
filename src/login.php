@@ -8,9 +8,9 @@
 	}
 
 	// If received a POST, check login!
-	if(isset($_POST["nick"]) && isset($_POST["password"])) {
+	if(isset($_POST["username"]) && isset($_POST["password"])) {
 		$con = startDBConnection();
-		$query = "SELECT password,is_admin FROM $db_database.members WHERE username=\"". $_POST["nick"] ."\" LIMIT 1";
+		$query = "SELECT password,is_admin FROM $db_database.members WHERE username=\"". $_POST["username"] ."\" LIMIT 1";
 		$result = mysqli_query($con, $query) or die('Error: '. $con->error);
 
 		if(mysqli_num_rows($result) >= 1) { // Check if got any result
@@ -19,7 +19,7 @@
 			closeDBConnection();
 
 			if(!empty($_POST["password"]) && $_POST["password"] == $data["password"]) {
-				$_SESSION["username"] = $_POST["nick"];
+				$_SESSION["username"] = $_POST["username"];
 				$_SESSION["isAuthenticated"] = true;
 				$_SESSION["isAdmin"] = $data["is_admin"];
 
@@ -39,7 +39,7 @@
 		echo "Here you go! Now log yourself in!";
 ?>
 <form name="login" action="login.php" method="post" onSubmit="document.login.password.value = $.md5(document.login.password.value)">
-	<input name="nick" type="text" placeholder="Nick">
+	<input name="username" type="text" placeholder="Username">
 	<input name="password" type="password" placeholder="Password">
 	<input type="submit" value="Login">
 </form>

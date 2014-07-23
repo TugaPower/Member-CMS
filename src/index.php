@@ -33,7 +33,6 @@
 				var tabs = [
 					{ name:"Home", url:"home.php" },
 					{ name:"Profile", url:"profile.php" },
-					{ name:"Messages", url:"messages.php" },
 					{ name:"Stats", url:"stats.php" }
 					<?php if($_SESSION["isAdmin"]) echo ", { name:\"Administration\", url:\"admin.php\" }"?>
 				];

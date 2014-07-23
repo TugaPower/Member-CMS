@@ -1,1 +1,0 @@
-You have currently no messages.
