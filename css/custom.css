@@ -1,0 +1,57 @@
+/* Body */
+body {
+	background-image: url("../images/background.png");
+	background-repeat: repeat;
+}
+
+/* Container */
+.container {
+	padding: 15px;
+}
+
+/* Login */
+#login {
+	margin: 0 auto;
+	width: 300px;
+	height: auto;
+}
+
+#login .form-control {
+	border-radius: 4px;
+	margin-bottom: 15px;
+	padding: 5px 10px;
+	width: 268px;
+}
+
+#login #button {
+	margin-bottom: -13px;
+	width: 268px;
+}
+
+/* Register */
+#register {
+	margin: 0 auto;
+	width: 300px;
+	height: auto;
+}
+
+#register .form-control {
+	border-radius: 4px;
+	margin-bottom: 15px;
+	padding: 5px 10px;
+	width: 268px;
+}
+
+#register #smallButton {
+	width: 219px;
+	margin-right: 5px;
+}
+
+#register #info {
+	height: 34px;
+}
+
+#register #button {
+	margin: 15px 0px -13px 0px;
+	width: 268px;
+}
