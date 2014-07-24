@@ -41,7 +41,7 @@
 	<div class="form-group">
 		<div class="input-group">
 			<input name="password" type="text" class="form-control" placeholder="Senha" pattern=".{5,99}" required>
-			<span class="input-group-btn"><button type="button" class="btn btn-info" onClick="document.register.password.value = $.md5(Math.random())">Gerar senha</button></span>
+			<span class="input-group-btn"><button type="button" class="btn btn-info" onClick="generatePassword()">Gerar senha</button></span>
 		</div>
 	</div>
 
@@ -49,3 +49,13 @@
 		<input class="btn btn-success center-block" type="submit" value="Adicionar">
 	</div>
 </form>
+<script type="application/javascript">
+	function generatePassword() {
+		var length = 10;
+		var charset = "abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		var pass = "";
+		for(var i = 0, n = charset.length; i < length; ++i)
+			pass += charset.charAt(Math.floor(Math.random() * n));
+		document.register.password.value = pass;
+	}
+</script>
