@@ -63,8 +63,10 @@ img {
 }
 
 #sidebar li {
+	background-color: #222;
 	cursor: context-menu;
 	border-left: 5px solid deepskyblue;
+	z-index: 11;
 }
 
 #sidebar a {
@@ -91,6 +93,23 @@ img {
 #sidebar .active:hover {
 	border-left: 5px solid #00f3ff !important;
 	background-color: #080808 !important;
+}
+
+#links {
+	width: 10%;
+	min-width: 200px !important;
+	margin: 0 auto;
+	text-align: center;
+	position: absolute;
+	bottom: 5px;
+	font-size: 30px;
+	z-index: 10;
+}
+#links a {
+	color: white !important;
+}
+#links a:hover {
+	opacity: .8;
 }
 
 .popup {
