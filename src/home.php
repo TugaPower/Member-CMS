@@ -20,6 +20,6 @@
 	closeDBConnection();
 
 	foreach($news as $current)
-		echo "<div class=\"news\"><h1>". $current["title"] ."</h1>". $current["body"] ."<br><span class=\"author\">by ". $current["author"] ." on ". $current["date"] ."</span></div>";
+		echo "<div class=\"news\"><h1>". $current["title"] ."</h1>". $current["body"] ."<br><span class=\"author\">por ". $current["author"] ." em ". $current["date"] ."</span></div>";
 
-	if(sizeof($news) < 1) echo "No available news.";
+	if(sizeof($news) < 1) echo "Nenhuma notícia disponível.";

@@ -28,6 +28,7 @@ img {
 	right: 10px;
 	overflow: hidden;
 	opacity: .9;
+	border-radius: 2px;
 }
 
 .nav-user:hover img {
@@ -90,6 +91,17 @@ img {
 	-ms-transform: rotate(-360deg); /* IE 9 */
 	-moz-transform: rotate(-360deg); /* Firefox */
 	-webkit-transform: rotate(-360deg); /* Chrome, Safari, Opera */
+}
+
+.login {
+	background-color: rgba(34,34,34,.3);
+	width: 20%;
+	min-width: 200px;
+	height: auto;
+	margin: auto;
+	position: absolute;
+	left: 40%;
+	top: 20%;
 }
 
 .news {

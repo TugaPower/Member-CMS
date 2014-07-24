@@ -24,15 +24,15 @@
 	mysqli_free_result($result);
 	closeDBConnection();
 
-	echo "<h2>Members</h2><h3>Member list</h3>";
-	echo "<table class=\"table table-hover table-striped\"><thead><td>ID</td><td>Username</td><td>Password</td><td>Last Activity</td></thead><tbody>";
+	echo "<h2>Membros</h2><h3>Lista de membros</h3>";
+	echo "<table class=\"table table-hover table-striped\"><thead><td>ID</td><td>Username</td><td>Última Atividade</td></thead><tbody>";
 	foreach($members as $current)
-		echo "<tr><td>". $current["id"] ."</td><td>". $current["username"] ."</td><td>". $current["password"] ."</td><td>". $current["last_activity"] ."</td></tr>";
+		echo "<tr><td>". $current["id"] ."</td><td>". $current["username"] ."</td><td>". $current["last_activity"] ."</td></tr>";
 	echo "</tbody></table>";
 
 	if(sizeof($members) < 1) echo "There are no members in the database.";
 ?>
-<h3>Add a new member</h3>
+<h3>Adicionar membro</h3>
 <form name="register" action="util/register.php" method="post" onSubmit="document.register.password.value = $.md5(document.register.password.value)">
 	<div class="form-group">
 		<input name="username" type="text" class="form-control" placeholder="Username" value="<?php echo $_SESSION["username"] ?>" required>
@@ -46,6 +46,6 @@
 	</div>
 
 	<div class="form-group">
-		<input class="btn btn-success" style="width: 100%" type="submit" value="Add">
+		<input class="btn btn-success" style="width: 100%" type="submit" value="Adicionar">
 	</div>
 </form>

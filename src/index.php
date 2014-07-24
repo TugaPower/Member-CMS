@@ -32,9 +32,9 @@
 			function loadSidebar(current) {
 				var tabs = [
 					{ name:"Home", url:"home.php" },
-					{ name:"Profile", url:"profile.php" },
-					{ name:"Stats", url:"stats.php" }
-					<?php if($_SESSION["isAdmin"]) echo ", { name:\"Administration\", url:\"admin.php\" }"?>
+					{ name:"Perfil", url:"profile.php" },
+					{ name:"Estatísticas", url:"stats.php" }
+					<?php if($_SESSION["isAdmin"]) echo ", { name:\"Administração\", url:\"admin.php\" }"?>
 				];
 
 				sidebar = document.getElementById("sidebar");
