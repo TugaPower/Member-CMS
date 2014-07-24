@@ -1,11 +1,9 @@
 <?php
-/**
- * Class user to authenticate users so they can access the member area
- */
-error_reporting(0);
-
-//Import useful files
-require_once("utils/functions.php");
+//Set the page's title and set this page as active
+$title = "Iniciar Sessão";
+$requireAuth = false;
+$showNavbar = false;
+include("includes/header.php");
 
 //Check if the user is logged
 isLogged_login();
@@ -19,36 +17,22 @@ $success = $_GET["success"];
 $register = $_GET["register"];
 $uponChanges = $_GET["uponChanges"];
 ?>
-<html>
-	<head>
-		<title>Login &raquo; TugaPower - �rea Restrita</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-
-		<!-- Custom CSS -->
-		<link rel="stylesheet" type="text/css" href="css/custom.css"/>
-	</head>
-<body>
-<div class="container" id="content">
 	<div class="panel panel-default" id="login">
 		<div class="panel-body">
 			<h1 style="margin-top: 0px; text-align: center; font-weight: bold; margin-bottom: 15px;">TugaPower</h1>
 			<?php
 			if ($unknownUsername)
-				createAlert("danger", "<b>Erro! </b>O username n�o existe!");
+				createAlert("danger", "<b>Erro! </b>O username não existe!");
 			if ($dontMatch)
-				createAlert("danger", "<b>Erro! </b>O username e a password n�o combinam!");
+				createAlert("danger", "<b>Erro! </b>O username e a password não combinam!");
 			if ($empty)
 				createAlert("danger", "<b>Erro! </b>Por favor preenche todos os campos.");
 			if ($needLogin)
-				createAlert("danger", "<b>Erro! </b>Tens de iniciar sess�o!");
+				createAlert("danger", "<b>Erro! </b>Tens de iniciar sessão!");
 			if ($register)
-				createAlert("success", "<b>Sucesso! </b>Foste corretamente registado. Dever�s agora iniciar sess�o.");
+				createAlert("success", "<b>Sucesso! </b>Foste corretamente registado. Deverás agora iniciar sessão.");
 			if ($uponChanges)
-				createAlert("success", "<b>Sucesso! </b>As informa��es da tua conta foram alteradas! Dever�s agora iniciar sess�o.");
+				createAlert("success", "<b>Sucesso! </b>As informações da tua conta foram alteradas! Deverás agora iniciar sessão.");
 			?>
 			<div class="input-group">
 				<form action="do/login.php" method="post">
@@ -57,12 +41,12 @@ $uponChanges = $_GET["uponChanges"];
 						       autofocus autocomplete/>
 						<input type="password" class="form-control" placeholder="Password" name="password"
 						       pattern=".{6,99}" required autocomplete/>
-						<input type="submit" class="btn btn-primary" id="button" value="Iniciar Sess�o"
-						       data-loading-text="A iniciar sess�o..."/>
+						<input type="submit" class="btn btn-primary" id="button" value="Iniciar Sessão"
+						       data-loading-text="A iniciar sessão..."/>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
 
-<?php require_once("utils/footer.php"); ?>
+<?php include("includes/footer.php"); ?>

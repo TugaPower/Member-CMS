@@ -1,19 +1,7 @@
 <?php
-error_reporting(0);
-session_start();
-
-//Check if the user has permissions
-if (!$_SESSION["isLogged"]) {
-	echo "<script type\"Javascript\">window.location = \"login.php?needLogin=true\";</script>";
-	die();
-}
-
-//Import useful files
-require_once("utils/info.php");
-require_once("utils/functions.php");
-
 //Set the page's title and set this page as active
 $title = "P�gina Principal";
+$needsAuth = true;
 $active_index = true;
 require_once("utils/header.php");
 ?>
