@@ -268,16 +268,32 @@ img {
 	letter-spacing: -1px;
 }
 
-ul .player-info {
+ul .player-head {
 	margin: 20px 0 15px 40px;
 }
 
-ul .player-info img {
+ul .player-head img {
 	border: solid #fff 3px;
 }
 
-ul .player-info p {
+ul .player-head p {
 	margin: 10px 0 0 -40px !important;
 	text-align: center;
 	color: #fff;
+}
+
+.panel-title {
+	font-weight: bold;
+}
+
+.player-info h2 {
+	margin-top: 0;
+	padding-left: 15px;
+	border-bottom: solid #222 1px;
+}
+
+.player-info img {
+	margin-right: 15px;
+	border: solid #222 3px;
+	float: left;
 }
