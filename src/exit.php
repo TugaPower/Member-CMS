@@ -1,4 +1,6 @@
 <?php
+	include("utils.php");
+
 	session_start();
 	session_destroy();
 
