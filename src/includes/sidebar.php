@@ -13,7 +13,12 @@
 	?>
 
 	<div class="player-info">
-		<img src="https://minotar.net/helm/<?php echo $_SESSION["username"]; ?>/120.png" class="img-circle">
+		<?php
+			if(isset($_SESSION["email"]) && !empty(isset($_SESSION["email"])))
+				echo "<img src=\"https://www.gravatar.com/avatar/". md5(strToLower(trim($_SESSION["email"]))) ."?size=120&d=". urlEncode("https://minotar.net/helm/". $_SESSION["username"] ."/120.png") ."\" class=\"img-circle\">";
+			else
+				echo "<img src=\"https://minotar.net/helm/". $_SESSION["username"] ."/120.png\" class=\"img-circle\">";
+		?>
 		<p><strong>Bem-vindo,</strong> <?php echo $_SESSION["username"]; ?></p>
 	</div>
 </ul>
