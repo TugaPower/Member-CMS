@@ -12,21 +12,24 @@
 	}
 
 	$con = startDBConnection();
+	$encryptedCurrPass = md5(sha1(md5($_POST["current_password"])) . $_POST["current_password"]);
+	$encryptedNewPass = md5(sha1(md5($_POST["password"])) . $_POST["password"]);
 
 	// Check if the password is correct
-	$queryPassword = "SELECT password FROM $db_database.members WHERE username='". $_POST["username_old"] ."' AND password='". $_POST["current_password"] ."'";
+	$queryPassword = "SELECT password FROM $db_database.members WHERE username='". $_POST["username_old"] ."' AND password='$encryptedCurrPass'";
 	if(mysqli_num_rows(mysqli_query($con, $queryPassword)) < 1) {
-		echo "<h3 style=\"text-align: center\"><i class=\"fa fa-warning\"></i> Incorrect password.</h3>";
+		redirect("../index.php?popup=warning&popup_desc=Senha incorreta!");
 		die();
 	}
 
-	$query = "UPDATE $db_database.members SET username='". $_POST["username"] ."', password='". (!empty($_POST["password"]) ? $_POST["password"] : $_POST["current_password"]) ."', is_mojang_account='". ($_POST["mojang"] ? '1' : '0') ."', email='". $_POST["email"] ."' WHERE username='". $_POST["username_old"] ."'";
-	if(!mysqli_query($con, $query))
+	$query = "UPDATE $db_database.members SET username='". $_POST["username"] ."', password='". (!empty($_POST["password"]) ? $encryptedNewPass : $encryptedCurrPass) ."', is_mojang_account='". ($_POST["mojang"] ? '1' : '0') ."', email='". $_POST["email"] ."' WHERE username='". $_POST["username_old"] ."'";
+	if(!mysqli_query($con, $query)) {
+		redirect("../index.php?popup=error&popup_desc=Perfil atualizado!");
 		die('Error: '. $con->error);
-	else {
-		echo("Profile update successfully.");
-
+	} else {
 		// Update session credentials
 		$_SESSION["isMojang"] = $_POST["mojang"];
 		$_SESSION["email"] = $_POST["email"];
+		redirect("../index.php?popup=success&popup_desc=Perfil atualizado!");
 	}
+

@@ -33,7 +33,7 @@
 	if(sizeof($members) < 1) echo "There are no members in the database.";
 ?>
 <h3>Adicionar membro</h3>
-<form name="register" action="util/register.php" method="post" onSubmit="document.register.password.value = $.md5(document.register.password.value)">
+<form name="register" action="util/register.php" method="post">
 	<div class="form-group">
 		<input name="username" type="text" class="form-control" placeholder="Username" value="<?php echo $_SESSION["username"] ?>" required>
 	</div>
@@ -46,6 +46,6 @@
 	</div>
 
 	<div class="form-group">
-		<input class="btn btn-success" style="width: 100%" type="submit" value="Adicionar">
+		<input class="btn btn-success center-block" type="submit" value="Adicionar">
 	</div>
 </form>

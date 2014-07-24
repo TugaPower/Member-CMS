@@ -9,8 +9,10 @@
 
 	// If received a POST, check login!
 	if(isset($_POST["username"]) && isset($_POST["password"])) {
+		$encryptedPassword = md5(sha1(md5($_POST["password"])) . $_POST["password"]);
+
 		$con = startDBConnection();
-		$query = "SELECT is_admin,is_mojang_account,email FROM $db_database.members WHERE username='". $_POST["username"] ."' AND password='". $_POST["password"] ."' LIMIT 1";
+		$query = "SELECT is_admin,is_mojang_account,email FROM $db_database.members WHERE username='". $_POST["username"] ."' AND password='$encryptedPassword' LIMIT 1";
 		$result = mysqli_query($con, $query) or die('Error: '. $con->error);
 
 		if(mysqli_num_rows($result) >= 1) { // Check if got any result
@@ -27,9 +29,12 @@
 			redirect("index.php");
 			die();
 		} else {
-			echo "Username e/ou senha incorretos!<br>";
+			showPopup("error", "Username e/ou senha incorretos!<br>");
 		}
-	}?>
+	}
+
+	if(isset($_GET["exited"])) showPopup("success", "Foste deslogado com sucesso!");;
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,20 +59,10 @@
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
-
-	<!-- jQuery (need to be loaded before the end of the page because some pages use it's functionality earlier) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="js/jquery.md5.js"></script>
 </head>
 <body style="background: url('img/bg.png') repeat; display: table;">
 <div class="login">
-	<?php
-		if(isset($_GET["exited"]))
-			echo "Parabéns! Saiste sozinho!";
-		else
-			echo "Aqui está, agora entra!";
-	?>
-	<form name="login" action="login.php" method="post" onSubmit="document.login.password.value = $.md5(document.login.password.value)" class="form-inline">
+	<form name="login" action="login.php" method="post" class="form-inline">
 		<div class="form-group">
 			<div class="input-group">
 				<div class="input-group-addon"><i class="fa fa-user"></i></div>
@@ -81,7 +76,14 @@
 		<button type="submit" class="btn btn-default center-block">Login</button>
 	</form>
 </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="js/jquery.md5.js"></script>
+<script type="application/javascript">
+	function closePopups() {
+		$('.popup').each(function(index, element) {
+			$(element).css("display", "none");
+		});
+	}
+</script>
 </body>
 </html>

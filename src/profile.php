@@ -54,14 +54,9 @@
 </form>
 <script>
 	function checkForm() {
-		if(document.profile.password.value !== "")
-			if(document.profile.password.value !== document.getElementById("password-verify").value) {
-				return false;
-			} else
-				document.profile.password.value = $.md5(document.profile.password.value); // Only encrypt the password if its not empty
-
-		// Encrypt the current password
-		document.profile.current_password.value = $.md5(document.profile.current_password.value);
+		if(document.profile.password.value !== "" && document.profile.password.value !== document.getElementById("password-verify").value) {
+			return false;
+		}
 
 		return true;
 	}

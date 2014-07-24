@@ -12,9 +12,12 @@
 	}
 
 	$con = startDBConnection();
+	$encryptedPassword = md5(sha1(md5($_POST["password"])) . $_POST["password"]);
 
-	$query = "INSERT INTO $db_database.members (username, password) VALUES (\"". $_POST["username"] ."\", \"". $_POST["password"] ."\")";
-	if(!mysqli_query($con, $query))
+	$query = "INSERT INTO $db_database.members (username, password) VALUES (\"". $_POST["username"] ."\", \"$encryptedPassword\")";
+	if(!mysqli_query($con, $query)) {
+		redirect("../index.php?popup=error&popup_desc=Ocorreu um erro ao adicionar o utilizador!");
 		die('Error: '. $con->error);
-	else
-		echo($_POST["username"] ." added successfully.");
+	} else {
+		redirect("../index.php?popup=success&popup_desc=Utilizador adicionado!");
+	}

@@ -14,7 +14,7 @@
 			case "success":	echo "<div class=\"popup bg-success\" onClick=\"closePopups()\"><i class=\"fa fa-check\"></i> $description<i></i></div>"; break;
 			case "info":	echo "<div class=\"popup bg-info\" onClick=\"closePopups()\"><i class=\"fa fa-info\"></i> $description</div>"; break;
 			case "warning":	echo "<div class=\"popup bg-warning\" onClick=\"closePopups()\"><i class=\"fa fa-exclamation-triangle\"></i> $description</div>"; break;
-			case "severe":	echo "<div class=\"popup bg-danger\" onClick=\"closePopups()\"><i class=\"fa fa-frown-o\"></i> $description</div>"; break;
+			case "error":	echo "<div class=\"popup bg-danger\" onClick=\"closePopups()\"><i class=\"fa fa-frown-o\"></i> $description</div>"; break;
 		}
 	}
 
