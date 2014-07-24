@@ -1,17 +1,24 @@
 <?php
-	$stats = [
-		"SandroHc",
-		"joaopms",
-		"death_the_king2000",
-		"Zyroshi_Zyron"
-	];
+	include("utils.php");
+
+	$con = startDBConnection();
+
+	$query = "SELECT username FROM $db_database.members ORDER BY id ASC";
+	$result = mysqli_query($con, $query) or die('Error: '. $con->error);
+
+	$members = array();
+	while($row = mysqli_fetch_array($result))
+		$members[] = $row["username"];
+
+	mysqli_free_result($result);
+	closeDBConnection();
 
 	echo "<div class=\"selector\">";
-	for($i = 0; $i < sizeof($stats); $i++)
-		echo "<div class=\"avatar\" onClick=\"loadPlayer('". $stats[$i] ."')\"><img src=\"https://minotar.net/helm/". $stats[$i] ."/96.png\"><span>". $stats[$i] ."</span></div>";
+	foreach($members as $current)
+		echo "<div class=\"avatar\" onClick=\"loadPlayer('$current')\"><img src=\"https://minotar.net/helm/$current/96.png\"><span>$current</span></div>";
 	echo "</div>";
 ?>
-<div class="stats" onLoad="loadStatElements(); load('<?php echo $stats[0] ?>') /* Loads the first player on the array list */">
+<div class="stats" onLoad="loadStatElements(); load('<?php echo $members[0] ?>') /* Loads the first player on the array list */">
 	<div class="player"><img id="player-skin"><span id="player-name"></span></div>
 	<div class="info">
 		<div class="time-played">Tempo Jogado: <span id="time-played-info"></span></div>
@@ -51,5 +58,5 @@
 	killsMobs = document.getElementById("kills-mobs-info");
 	killsPlayers = document.getElementById("kills-players-info");
 
-	loadPlayer("<?php echo $stats[0] ?>"); // Load the first player on the array
+	loadPlayer("<?php echo $members ?>"); // Load the first player on the array
 </script>

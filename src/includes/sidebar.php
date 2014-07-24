@@ -15,12 +15,20 @@
 	<div class="player-head">
 		<?php
 			if(isset($_SESSION["email"]) && !empty(isset($_SESSION["email"])))
-				echo "<img src=\"https://www.gravatar.com/avatar/". md5(strToLower(trim($_SESSION["email"]))) ."?size=120&d=". urlEncode("https://minotar.net/helm/". $_SESSION["username"] ."/120.png") ."\" class=\"img-circle\">";
+				echo "<img src=\"https://www.gravatar.com/avatar/". md5(strToLower(trim($_SESSION["email"]))) ."?size=120?d=". urlEncode("https://minotar.net/helm/". $_SESSION["username"] ."/120.png") ."\" class=\"img-circle\">";
 			else
 				echo "<img src=\"https://minotar.net/helm/". $_SESSION["username"] ."/120.png\" class=\"img-circle\">";
 		?>
-		<p><strong>Bem-vindo,</strong> <?php echo $_SESSION["username"]; ?></p>
+		<p>Bem-vindo, <span class="bold"><?php echo $_SESSION["username"] ?></span></p>
 	</div>
 </ul>
-<div id="version"><strong>Versão <?php echo WEBSITE_VERSION; ?></strong></div>
-<div id="links"><a href="https://github.com/TugaPower" target="new"><i class="fa fa-github"></i></a></div>
+<div id="version"></div>
+<div id="info">
+	<a href="https://www.youtube.com/user/ZonaPMS" target="new"><i class="fa fa-youtube"></i></a>
+	<a href="https://www.facebook.com/ZonaPMS" target="new"><i class="fa fa-facebook"></i></a>
+	<a href="https://twitter.com/ZonaPMS" target="new"><i class="fa fa-twitter"></i></a>
+	<a href="https://tugapower.slack.com/" target="new"><i class="fa fa-slack"></i></a>
+	<a href="https://github.com/TugaPower" target="new"><i class="fa fa-github"></i></a>
+	<br>
+	<strong>Versão <?php echo WEBSITE_VERSION ?></strong>
+</div>

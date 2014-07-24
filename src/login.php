@@ -51,9 +51,19 @@ if (isset($_GET["exited"])) showPopup("success", "Foste deslogado com sucesso!")
 							<input name="password" class="form-control" type="password" placeholder="Password">
 						</div>
 					</div>
-					<button type="submit" class="btn btn-success center-block">Iniciar Sessão</button>
+					<span class="center-block text-center">
+						<button type="submit" class="btn btn-success btn-lg">Iniciar Sessão</button>
+						<a href="register.php" target="_self" class="btn btn-info" role="button">Registar</a>
+					</span>
 				</form>
 			</div>
 		</div>
 	</div>
+	<script type="application/javascript">
+		function closePopups() {
+			$('.popup').each(function (index, element) {
+				$(element).css("display", "none");
+			});
+		}
+	</script>
 <?php include("includes/footer.php"); ?>

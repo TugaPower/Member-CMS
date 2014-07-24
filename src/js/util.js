@@ -63,15 +63,15 @@ function loadContent(url, container) {
 }
 
 function changePage(newPage, url) {
-	if (getCookie("current_page" == newPage)) return; // If already in the target page, exit function
+	if (getCookie("current_page" === newPage)) return; // If already in the target page, exit function
 	setCookie("current_page", newPage);
 	setCookie("current_page_url", url);
 	loadContent(url, "#content");
 	updateSidebar(newPage); // Rebuilds the sidebar with the new content
 }
 
-if (getCookie("current_page") == "") setCookie("current_page", "Home"); // Defines a default page, if none exists
-if (getCookie("current_page_url") == "") setCookie("current_page_url", "home.php"); // Defines a default page, if none exists
+if (getCookie("current_page") === "") setCookie("current_page", "Home"); // Defines a default page, if none exists
+if (getCookie("current_page_url") === "") setCookie("current_page_url", "home.php"); // Defines a default page, if none exists
 
 $(function () { // Store every element after the page is loaded for later use
 	var page = getCookie("current_page");
