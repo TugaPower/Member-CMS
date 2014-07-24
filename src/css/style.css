@@ -77,22 +77,21 @@ img {
 #sidebar a:hover {
 	color: #fff;
 	background-color: #222;
-	border-left: 5px solid #006990;
+	border-left: 5px solid #007ca8;
 }
 
 #sidebar .active {
 	border-left: 5px solid #00e4ff;
-	background-color: #080808;
+	background-color: #111;
 }
 
 #sidebar .active a {
 	color: white;
-	margin-left: -5px;
 }
 
-#sidebar .active:hover {
+#sidebar .active:hover a {
 	border-left: 5px solid #00f3ff !important;
-	background-color: #080808 !important;
+	background-color: #111 !important;
 }
 
 #links {

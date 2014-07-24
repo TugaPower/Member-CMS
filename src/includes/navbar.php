@@ -1,7 +1,7 @@
 <nav id="nav" class="navbar navbar-inverse" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#"><i id="avatar" class="fa fa-power-off"></i> <?php echo WEBSITE_TITLE ?></a>
+            <a class="navbar-brand" href="#" onClick="changePage('Home', 'home.php')"><i id="avatar" class="fa fa-power-off"></i> <?php echo WEBSITE_TITLE ?></a>
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
