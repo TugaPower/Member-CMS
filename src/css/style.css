@@ -63,8 +63,10 @@ img {
 }
 
 #sidebar li {
+	background-color: #222;
 	cursor: context-menu;
 	border-left: 5px solid deepskyblue;
+	z-index: 11;
 }
 
 #sidebar a {
@@ -101,6 +103,7 @@ img {
 	position: absolute;
 	bottom: 5px;
 	font-size: 30px;
+	z-index: 10;
 }
 #links a {
 	color: white !important;
