@@ -1,39 +1,39 @@
 <?php
-	include_once("utils.php");
+include_once("utils.php");
 
-	// If already logged in, redirect to the main page
-	if(isset($_SESSION["isAuthenticated"]) && $_SESSION["isAuthenticated"]) {
-		header("Location: index.php");
+// If already logged in, redirect to the main page
+if (isset($_SESSION["isAuthenticated"]) && $_SESSION["isAuthenticated"]) {
+	header("Location: index.php");
+	die();
+}
+
+// If received a POST, check login!
+if (isset($_POST["username"]) && isset($_POST["password"])) {
+	$encryptedPassword = md5(sha1(md5($_POST["password"])) . $_POST["password"]);
+
+	$con = startDBConnection();
+	$query = "SELECT is_admin,is_mojang_account,email FROM $db_database.members WHERE username='" . $_POST["username"] . "' AND password='$encryptedPassword' LIMIT 1";
+	$result = mysqli_query($con, $query) or die('Error: ' . $con->error);
+
+	if (mysqli_num_rows($result) >= 1) { // Check if got any result
+		$data = mysqli_fetch_array($result);
+		mysqli_free_result($result);
+		closeDBConnection();
+
+		$_SESSION["username"] = $_POST["username"];
+		$_SESSION["isAuthenticated"] = true;
+		$_SESSION["isAdmin"] = $data["is_admin"];
+		$_SESSION["isMojang"] = $data["is_mojang_account"];
+		$_SESSION["email"] = $data["email"];
+
+		redirect("index.php");
 		die();
+	} else {
+		showPopup("error", "Username e/ou senha incorretos!<br>");
 	}
+}
 
-	// If received a POST, check login!
-	if(isset($_POST["username"]) && isset($_POST["password"])) {
-		$encryptedPassword = md5(sha1(md5($_POST["password"])) . $_POST["password"]);
-
-		$con = startDBConnection();
-		$query = "SELECT is_admin,is_mojang_account,email FROM $db_database.members WHERE username='". $_POST["username"] ."' AND password='$encryptedPassword' LIMIT 1";
-		$result = mysqli_query($con, $query) or die('Error: '. $con->error);
-
-		if(mysqli_num_rows($result) >= 1) { // Check if got any result
-			$data = mysqli_fetch_array($result);
-			mysqli_free_result($result);
-			closeDBConnection();
-
-			$_SESSION["username"] = $_POST["username"];
-			$_SESSION["isAuthenticated"] = true;
-			$_SESSION["isAdmin"] = $data["is_admin"];
-			$_SESSION["isMojang"] = $data["is_mojang_account"];
-			$_SESSION["email"] = $data["email"];
-
-			redirect("index.php");
-			die();
-		} else {
-			showPopup("error", "Username e/ou senha incorretos!<br>");
-		}
-	}
-
-	if(isset($_GET["exited"])) showPopup("success", "Foste deslogado com sucesso!");;
+if (isset($_GET["exited"])) showPopup("success", "Foste deslogado com sucesso!");;
 ?>
 <!DOCTYPE html>
 <html>
@@ -60,27 +60,32 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body style="background: url('img/bg.png') repeat; display: table;">
+<body>
 <div class="login">
-	<form name="login" action="login.php" method="post" class="form-inline">
-		<div class="form-group">
-			<div class="input-group">
-				<div class="input-group-addon"><i class="fa fa-user"></i></div>
-				<input name="username" class="form-control" type="text" placeholder="Username">
-			</div>
-			<div class="input-group">
-				<div class="input-group-addon"><i class="fa fa-lock"></i></div>
-				<input name="password" class="form-control" type="password" placeholder="Senha">
-			</div>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<h1><i id="avatar" class="fa fa-power-off"></i> <?php echo WEBSITE_TITLE ?></h1>
+			<form name="login" action="login.php" method="post" class="form-inline">
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-addon"><i class="fa fa-user"></i></div>
+						<input name="username" class="form-control" type="text" placeholder="Username">
+					</div>
+					<div class="input-group">
+						<div class="input-group-addon"><i class="fa fa-lock"></i></div>
+						<input name="password" class="form-control" type="password" placeholder="Password">
+					</div>
+				</div>
+				<button type="submit" class="btn btn-success center-block">Iniciar Sessão</button>
+			</form>
 		</div>
-		<button type="submit" class="btn btn-default center-block">Login</button>
-	</form>
+	</div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="application/javascript">
 	function closePopups() {
-		$('.popup').each(function(index, element) {
+		$('.popup').each(function (index, element) {
 			$(element).css("display", "none");
 		});
 	}
