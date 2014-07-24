@@ -35,7 +35,7 @@ function deleteCookie(key) {
 function applyConsistentHeight() {
 	var newHeight = $(window).height() - $("#nav").height();
 	$("#sidebar").height(newHeight);
-	$("#content").height(newHeight);
+	$("#content").height(newHeight - 30); // Because of the paddings
 }
 
 function updateSidebar(current) {
