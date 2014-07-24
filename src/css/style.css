@@ -149,6 +149,10 @@ img {
 	height: auto;
 }
 
+.login form {
+	margin: 0;
+}
+
 .login h1 {
 	margin-top: 0;
 	text-align: center;

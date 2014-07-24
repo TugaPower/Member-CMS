@@ -1,9 +1,9 @@
-<?php
-include_once("utils.php");
+<?php $renderNavbars = false;
+include("includes/header.php");
 
 // If already logged in, redirect to the main page
 if (isset($_SESSION["isAuthenticated"]) && $_SESSION["isAuthenticated"]) {
-	header("Location: index.php");
+	redirect("index.php");
 	die();
 }
 
@@ -33,62 +33,34 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 	}
 }
 
-if (isset($_GET["exited"])) showPopup("success", "Foste deslogado com sucesso!");;
+if (isset($_GET["exited"])) showPopup("success", "Foste deslogado com sucesso!");
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="Content-Language" content="pt">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title><?php echo WEBSITE_TITLE ?></title>
-	<link href="favicon.ico" rel="shortcut icon">
+	<div class="login">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h1><i id="avatar" class="fa fa-power-off"></i> <?php echo WEBSITE_TITLE ?></h1>
 
-	<!-- Main CSS file -->
-	<link href="css/style.css" rel="stylesheet">
-
-	<!-- Bootstrap -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-
-	<!-- Font Awesome -->
-	<link href="css/font-awesome.min.css" rel="stylesheet">
-
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
-	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
-</head>
-<body>
-<div class="login">
-	<div class="panel panel-default">
-		<div class="panel-body">
-			<h1><i id="avatar" class="fa fa-power-off"></i> <?php echo WEBSITE_TITLE ?></h1>
-			<form name="login" action="login.php" method="post" class="form-inline">
-				<div class="form-group">
-					<div class="input-group">
-						<div class="input-group-addon"><i class="fa fa-user"></i></div>
-						<input name="username" class="form-control" type="text" placeholder="Username">
+				<form name="login" action="login.php" method="post" class="form-inline">
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-addon"><i class="fa fa-user"></i></div>
+							<input name="username" class="form-control" type="text" placeholder="Username">
+						</div>
+						<div class="input-group">
+							<div class="input-group-addon"><i class="fa fa-lock"></i></div>
+							<input name="password" class="form-control" type="password" placeholder="Password">
+						</div>
 					</div>
-					<div class="input-group">
-						<div class="input-group-addon"><i class="fa fa-lock"></i></div>
-						<input name="password" class="form-control" type="password" placeholder="Password">
-					</div>
-				</div>
-				<button type="submit" class="btn btn-success center-block">Iniciar Sessão</button>
-			</form>
+					<button type="submit" class="btn btn-success center-block">Iniciar Sessão</button>
+				</form>
+			</div>
 		</div>
 	</div>
-</div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script type="application/javascript">
-	function closePopups() {
-		$('.popup').each(function (index, element) {
-			$(element).css("display", "none");
-		});
-	}
-</script>
-</body>
-</html>
+	<script type="application/javascript">
+		function closePopups() {
+			$('.popup').each(function (index, element) {
+				$(element).css("display", "none");
+			});
+		}
+	</script>
+<?php include("includes/footer.php"); ?>
