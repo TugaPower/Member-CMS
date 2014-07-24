@@ -12,7 +12,7 @@
 		echo "<li " . ($_COOKIE["current_page"] === $current["name"] ? " class=\"active\"" : "") . "><a onClick=\"changePage('" . $current["name"] . "','" . $current["url"] . "')\">" . $current["name"] . "</a></li>";
 	?>
 
-	<div class="player-info">
+	<div class="player-head">
 		<?php
 			if(isset($_SESSION["email"]) && !empty(isset($_SESSION["email"])))
 				echo "<img src=\"https://www.gravatar.com/avatar/". md5(strToLower(trim($_SESSION["email"]))) ."?size=120&d=". urlEncode("https://minotar.net/helm/". $_SESSION["username"] ."/120.png") ."\" class=\"img-circle\">";
@@ -22,4 +22,5 @@
 		<p><strong>Bem-vindo,</strong> <?php echo $_SESSION["username"]; ?></p>
 	</div>
 </ul>
+<div id="version"><strong>Versão <?php echo WEBSITE_VERSION; ?></strong></div>
 <div id="links"><a href="https://github.com/TugaPower" target="new"><i class="fa fa-github"></i></a></div>

@@ -16,13 +16,13 @@ img {
 	margin: 0;
 }
 
-.navbar-header .fa-power-off, .login h1 .fa-power-off {
+.navbar-header .fa-power-off {
 	transition: transform .4s;
 	-moz-transition: transform .4s;
 	-webkit-transition: transform .4s;
 }
 
-.navbar-header:hover .fa-power-off, .login h1:hover .fa-power-off {
+.navbar-header:hover .fa-power-off {
 	transform: rotate(-360deg);
 	-ms-transform: rotate(-360deg); /* IE 9 */
 	-moz-transform: rotate(-360deg); /* Firefox */
@@ -98,19 +98,31 @@ img {
 	background-color: #111 !important;
 }
 
-#links {
+#version {
 	width: 10%;
 	min-width: 200px !important;
 	margin: 0 auto;
 	text-align: center;
 	position: absolute;
 	bottom: 5px;
+	z-index: 10;
+}
+
+#links {
+	width: 10%;
+	min-width: 200px !important;
+	margin: 0 auto;
+	text-align: center;
+	position: absolute;
+	bottom: 20px;
 	font-size: 30px;
 	z-index: 10;
 }
+
 #links a {
 	color: white !important;
 }
+
 #links a:hover {
 	opacity: .8;
 }
@@ -136,6 +148,8 @@ img {
 }
 
 #content {
+	margin-bottom: -30px;
+	padding: 15px;
 	height: 100%;
 	overflow: auto;
 }
@@ -147,9 +161,8 @@ img {
 	padding-top: 25px;
 }
 
-.panel{
+.login .panel {
 	margin: 0 auto;
-	margin-top: 35px;
 	width: 300px;
 	height: auto;
 }
@@ -255,16 +268,32 @@ img {
 	letter-spacing: -1px;
 }
 
-ul .player-info {
+ul .player-head {
 	margin: 20px 0 15px 40px;
 }
 
-ul .player-info img {
+ul .player-head img {
 	border: solid #fff 3px;
 }
 
-ul .player-info p {
+ul .player-head p {
 	margin: 10px 0 0 -40px !important;
 	text-align: center;
 	color: #fff;
+}
+
+.panel-title {
+	font-weight: bold;
+}
+
+.player-info h2 {
+	margin-top: 0;
+	padding-left: 15px;
+	border-bottom: solid #222 1px;
+}
+
+.player-info img {
+	margin-right: 15px;
+	border: solid #222 3px;
+	float: left;
 }

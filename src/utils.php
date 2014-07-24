@@ -35,6 +35,7 @@
 	 * Constants
 	 */
 	define("WEBSITE_TITLE", "TugaPower");
+	define("WEBSITE_VERSION", "0.1");
 
 	/*
 	 * Database information and utility functions.
