@@ -17,4 +17,5 @@
 		<p><strong>Bem-vindo,</strong> <?php echo $_SESSION["username"]; ?></p>
 	</div>
 </ul>
+<div id="version"><strong>Versão <?php echo WEBSITE_VERSION; ?></strong></div>
 <div id="links"><a href="https://github.com/TugaPower" target="new"><i class="fa fa-github"></i></a></div>
