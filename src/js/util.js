@@ -36,6 +36,16 @@ function applyConsistentHeight() {
 	$("#content").height(newHeight);
 }
 
+function updateSidebar(current) {
+	$("#sidebar").find("li").each(function(i, val) {
+		element = $(val);
+		if(element.find("a").text() === current)
+			element.addClass("active");
+		else
+			element.removeClass("active");
+	});
+}
+
 /**
  * Loads the contents of the url to the desired container.
  *
@@ -55,7 +65,7 @@ function changePage(newPage, url) {
 	setCookie("current_page", newPage);
 	setCookie("current_page_url", url);
 	loadContent(url, "#content");
-	loadSidebar(newPage); // Rebuilds the sidebar with the new content
+	updateSidebar(newPage); // Rebuilds the sidebar with the new content
 }
 
 if(getCookie("current_page") == "") setCookie("current_page", "Home"); // Defines a default page, if none exists
@@ -67,7 +77,6 @@ $(function() { // Store every element after the page is loaded for later use
 	console.log("Loading page " + page + " (" + url + ")");
 
 	loadContent(url, '#content'); // Loads the first player on the array list
-	loadSidebar(page);
 
 	applyConsistentHeight();
 });
