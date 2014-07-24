@@ -1,4 +1,7 @@
 <?php
+	/*
+	 * Utility functions
+	 */
 	function redirect($url) {
 		if(headers_sent())
 			echo "<script type=\"application/javascript\">window.location = ". $url ."</script>";
@@ -6,6 +9,18 @@
 			header("Location: $url");
 	}
 
+	function showPopup($type, $description) {
+		switch($type) {
+			case "success":	echo "<div class=\"popup bg-success\" onClick=\"closePopups()\"><i class=\"fa fa-check\"></i> $description<i></i></div>"; break;
+			case "info":	echo "<div class=\"popup bg-info\" onClick=\"closePopups()\"><i class=\"fa fa-info\"></i> $description</div>"; break;
+			case "warning":	echo "<div class=\"popup bg-warning\" onClick=\"closePopups()\"><i class=\"fa fa-exclamation-triangle\"></i> $description</div>"; break;
+			case "severe":	echo "<div class=\"popup bg-danger\" onClick=\"closePopups()\"><i class=\"fa fa-frown-o\"></i> $description</div>"; break;
+		}
+	}
+
+	/*
+	 * Authentication checks
+	 */
 	session_start();
 	if(!isset($_SESSION["isAdmin"])) $_SESSION["isAdmin"] = false;
 	if(!isset($_SESSION["isAuthenticated"])) $_SESSION["isAuthenticated"] = false;
@@ -14,7 +29,11 @@
 		die();
 	}
 
-	// Website Title
+	if(isset($_GET["popup"])) showPopup($_GET["popup"], $_GET["popup_desc"]);
+
+	/*
+	 * Constants
+	 */
 	define("WEBSITE_TITLE", "TugaPower");
 
 	/*
@@ -36,7 +55,7 @@
 		global $db_con, $db_host, $db_username, $db_password, $db_database;
 		if($db_con == NULL) {
 			$db_con = mysqli_connect($db_host, $db_username, $db_password, $db_database);
-			if (mysqli_connect_errno()) {
+			if(mysqli_connect_errno()) {
 				echo "Failed to connect to MySQL: ". mysqli_connect_error();
 				return NULL;
 			}

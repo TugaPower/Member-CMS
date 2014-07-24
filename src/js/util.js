@@ -28,7 +28,7 @@ function deleteCookie(key) {
 }
 
 /**
- * Used on the the #sidebar & #content to make no vertical bar appear (because their height doesn't compensate for the navbar)
+ * Used on the the #sidebar & #content to make for the entire page's height to stay at 100%
  */
 function applyConsistentHeight() {
 	var newHeight = $(window).height() - ($("#nav").height() + 1);
@@ -36,6 +36,12 @@ function applyConsistentHeight() {
 	$("#content").height(newHeight);
 }
 
+/**
+ * Loads the contents of the url to the desired container.
+ *
+ * @param url		URL to get the contents
+ * @param container	The target container to display the contents
+ */
 function loadContent(url, container) {
 	var target = $(container);
 	target.html("<i class=\"fa fa-spinner fa-5x fa-spin loading\"></i>");
@@ -69,3 +75,9 @@ $(function() { // Store every element after the page is loaded for later use
 window.onresize = function(event) {
 	applyConsistentHeight();
 };
+
+function closePopups() {
+	$('.popup').each(function(index, element) {
+		$(element).css("display", "none");
+	});
+}

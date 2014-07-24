@@ -78,10 +78,10 @@
 				<input name="password" class="form-control" type="password" placeholder="Senha">
 			</div>
 		</div>
-		<button type="submit" class="btn btn-default">Sign in</button>
+		<button type="submit" class="btn btn-default center-block">Login</button>
 	</form>
 </div>
-<script async src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script async src="js/jquery.md5.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="js/jquery.md5.js"></script>
 </body>
 </html>
