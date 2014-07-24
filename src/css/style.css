@@ -12,8 +12,8 @@ img {
 	border-radius: 0;
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;
-	margin-bottom: 0;
-	border-width: 0 0 1px 0;
+	border-width: 0;
+	margin: 0;
 }
 
 .navbar-header .fa-power-off {
@@ -94,13 +94,14 @@ img {
 }
 
 .popup {
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'DejaVu Sans', sans-serif;
+	font-size: 20px;
 	position: absolute;
+	color: black;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 50px;
-	color: black;
-	font-size: 25px;
 	line-height: 50px;
 	text-align: center;
 	z-index: 99;

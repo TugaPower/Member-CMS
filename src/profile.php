@@ -13,7 +13,7 @@
 		<label for="email" class="col-sm-2 control-label">Email</label>
 
 		<div class="col-sm-10">
-			<input type="email" class="form-control" placeholder="Email" name="email" value="<?php echo $_SESSION["email"] ?>"/>
+			<input name="email" type="email" class="form-control" placeholder="Email" value="<?php echo $_SESSION["email"] ?>"/>
 		</div>
 	</div>
 
@@ -21,7 +21,7 @@
 		<label for="mojang" class="col-sm-2 control-label">Conta Mojang</label>
 
 		<div class="col-sm-10">
-			<select class="form-control" name="mojang">
+			<select name="mojang" class="form-control">
 				<option value="true">Sim</option>
 				<option value="false" <?php if (!$_SESSION["isMojang"]) echo "selected" ?>>Não</option>
 			</select>
