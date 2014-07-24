@@ -16,13 +16,13 @@ img {
 	margin: 0;
 }
 
-.navbar-header .fa-power-off {
+.navbar-header .fa-power-off, .login h1 .fa-power-off {
 	transition: transform .4s;
 	-moz-transition: transform .4s;
 	-webkit-transition: transform .4s;
 }
 
-.navbar-header:hover .fa-power-off {
+.navbar-header:hover .fa-power-off, .login h1:hover .fa-power-off {
 	transform: rotate(-360deg);
 	-ms-transform: rotate(-360deg); /* IE 9 */
 	-moz-transform: rotate(-360deg); /* Firefox */
@@ -147,8 +147,9 @@ img {
 	padding-top: 25px;
 }
 
-.login .panel{
+.panel{
 	margin: 0 auto;
+	margin-top: 35px;
 	width: 300px;
 	height: auto;
 }

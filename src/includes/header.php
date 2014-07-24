@@ -26,6 +26,6 @@
 
 	<!-- jQuery (need to be loaded before the end of the page because some pages use it's functionality earlier) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="js/util.js"></script> <!-- Import our utility script -->
+	<?php if(!(basename($_SERVER['PHP_SELF']) == "login.php")) { ?><script src="js/util.js"></script><?php } ?> <!-- Import our utility script; and import it only when we're not on the login page! -->
 </head>
 <body>
