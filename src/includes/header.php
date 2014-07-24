@@ -1,8 +1,4 @@
-<?php include("./utils.php");
-// Set some variables if they are empty
-if (!isset($renderNavbars))
-	$renderNavbars = true;
-?>
+<?php include("./utils.php") ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,10 +29,3 @@ if (!isset($renderNavbars))
 	<script src="js/util.js"></script> <!-- Import our utility script -->
 </head>
 <body>
-<?php
-if ($renderNavbars) {
-	include("navbar.php");
-	include("sidebar.php");
-}
-?>
-<div id="content">

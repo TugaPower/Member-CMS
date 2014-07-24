@@ -1,4 +1,4 @@
-<?php $renderNavbars = false;
+<?php
 include("includes/header.php");
 
 // If already logged in, redirect to the main page
@@ -56,11 +56,4 @@ if (isset($_GET["exited"])) showPopup("success", "Foste deslogado com sucesso!")
 			</div>
 		</div>
 	</div>
-	<script type="application/javascript">
-		function closePopups() {
-			$('.popup').each(function (index, element) {
-				$(element).css("display", "none");
-			});
-		}
-	</script>
 <?php include("includes/footer.php"); ?>
