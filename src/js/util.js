@@ -31,7 +31,7 @@ function deleteCookie(key) {
  * Used on the the #sidebar & #content to make for the entire page's height to stay at 100%
  */
 function applyConsistentHeight() {
-	var newHeight = $(window).height() - ($("#nav").height() + 1);
+	var newHeight = $(window).height() - $("#nav").height();
 	$("#sidebar").height(newHeight);
 	$("#content").height(newHeight);
 }

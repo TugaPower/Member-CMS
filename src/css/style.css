@@ -81,6 +81,22 @@ img {
 	background-color: #080808 !important;
 }
 
+#links {
+	width: 10%;
+	min-width: 200px !important;
+	margin: 0 auto;
+	text-align: center;
+	position: absolute;
+	bottom: 5px;
+	font-size: 30px;
+}
+#links a {
+	color: white !important;
+}
+#links a:hover {
+	opacity: .8;
+}
+
 .popup {
 	font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'DejaVu Sans', sans-serif;
 	font-size: 20px;
