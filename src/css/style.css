@@ -62,6 +62,10 @@ img {
 	border-right: 1px solid #080808;
 }
 
+#sidebar ul {
+	border-bottom: 1px solid #080808;
+}
+
 #sidebar li {
 	background-color: #222;
 	cursor: context-menu;
@@ -248,4 +252,18 @@ img {
 	z-index: 11;
 	overflow: hidden;
 	letter-spacing: -1px;
+}
+
+ul .player-info {
+	margin: 20px 0 15px 40px;
+}
+
+ul .player-info img {
+	border: solid #fff 3px;
+}
+
+ul .player-info p {
+	margin: 10px 0 0 -40px !important;
+	text-align: center;
+	color: #fff;
 }
