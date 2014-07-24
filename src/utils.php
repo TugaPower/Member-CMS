@@ -40,7 +40,7 @@
 	 * Database information and utility functions.
 	 */
 	$db_host = "localhost";
-	$db_username = "root";
+	$db_username = "tugapower";
 	$db_password = "biscoitos123";
 	$db_database = "tugapower";
 	$db_con = NULL; // Used to store temporary connections
