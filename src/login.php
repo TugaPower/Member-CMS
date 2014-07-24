@@ -67,10 +67,18 @@
 		else
 			echo "Aqui está, agora entra!";
 	?>
-	<form name="login" action="login.php" method="post" onSubmit="document.login.password.value = $.md5(document.login.password.value)">
-		<input name="username" type="text" placeholder="Username">
-		<input name="password" type="password" placeholder="Senha" pattern=".{5,99}">
-		<input type="submit" value="Login">
+	<form name="login" action="login.php" method="post" onSubmit="document.login.password.value = $.md5(document.login.password.value)" class="form-inline">
+		<div class="form-group">
+			<div class="input-group">
+				<div class="input-group-addon"><i class="fa fa-user"></i></div>
+				<input name="username" class="form-control" type="text" placeholder="Username">
+			</div>
+			<div class="input-group">
+				<div class="input-group-addon"><i class="fa fa-lock"></i></div>
+				<input name="password" class="form-control" type="password" placeholder="Senha">
+			</div>
+		</div>
+		<button type="submit" class="btn btn-default">Sign in</button>
 	</form>
 </div>
 <script async src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
