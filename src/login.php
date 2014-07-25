@@ -18,7 +18,6 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 	if (mysqli_num_rows($result) >= 1) { // Check if got any result
 		$data = mysqli_fetch_array($result);
 		mysqli_free_result($result);
-		closeDBConnection();
 
 		$_SESSION["username"] = $_POST["username"];
 		$_SESSION["isAuthenticated"] = true;
@@ -26,11 +25,14 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 		$_SESSION["isMojang"] = $data["is_mojang_account"];
 		$_SESSION["email"] = $data["email"];
 
+		// TODO Update last_activity
+
 		redirect("index.php");
 		die();
 	} else {
 		showPopup("error", "Username e/ou senha incorretos!<br>");
 	}
+	closeDBConnection();
 }
 
 if (isset($_GET["exited"])) showPopup("success", "Foste deslogado com sucesso!");

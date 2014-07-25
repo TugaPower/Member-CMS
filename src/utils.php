@@ -24,7 +24,7 @@
 	session_start();
 	if(!isset($_SESSION["isAdmin"])) $_SESSION["isAdmin"] = false;
 	if(!isset($_SESSION["isAuthenticated"])) $_SESSION["isAuthenticated"] = false;
-	if(!$_SESSION["isAuthenticated"] && !(basename($_SERVER['PHP_SELF']) == "login.php")) { // If the user is not authenticated and we're not in the login page, redirect the user to the login page
+	if(!$_SESSION["isAuthenticated"] && (!(basename($_SERVER['PHP_SELF']) == "login.php") && !(basename($_SERVER['PHP_SELF']) == "register.php"))) { // If the user is not authenticated and we're not in the login our register pages, redirect the user to the login page
 		redirect('login.php');
 		die();
 	}

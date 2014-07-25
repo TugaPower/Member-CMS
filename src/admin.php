@@ -34,7 +34,7 @@
 	if(sizeof($members) < 1) echo "There are no members in the database.";
 ?>
 <h3>Adicionar membro</h3>
-<form name="register" action="util/register.php" method="post" class="form-size">
+<form name="register" action="util/register_user.php" method="post" class="form-size">
 	<div class="form-group">
 		<input name="username" type="text" class="form-control" placeholder="Username" value="<?php echo $_SESSION["username"] ?>" required>
 	</div>
