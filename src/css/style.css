@@ -266,6 +266,12 @@ ul .player-head p {
 	border: solid #222 3px;
 }
 
+/** Admin page **/
+tr.token_used td {
+	color:white;
+	background-color: #c43b3b !important;
+}
+
 /** Stats page **/
 .selector {
 	width: 100%;

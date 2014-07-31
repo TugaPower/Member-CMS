@@ -53,7 +53,7 @@
 	if(sizeof($tokenList) >0) {
 		echo "<table class=\"table table-hover table-striped\"><thead><td>ID</td><td>Token</td><td>Gerado em...</td><td>Expira em...</td><td>Opções</td></thead><tbody>";
 		foreach($tokenList as $current)
-			echo "<tr><td>". $current["id"] ."</td><td>". $current["token"] ."</td><td>". $current["generate_date"] ."</td><td>". $current["expire_date"] ."</td><td>Remover</td></tr>";
+			echo "<tr". ($current["used"] ? " class=\"token_used\"" : "") ."><td>". $current["id"] ."</td><td>". $current["token"] ."</td><td>". $current["generate_date"] ."</td><td>". $current["expire_date"] ."</td><td>Remover</td></tr>";
 		echo "</tbody></table>";
 	} else
 		echo "Não existem tokens registados.";
