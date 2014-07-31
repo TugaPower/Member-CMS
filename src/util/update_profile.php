@@ -24,7 +24,7 @@
 
 	$query = "UPDATE $db_database.members SET username='". $_POST["username"] ."', password='". (!empty($_POST["password"]) ? $encryptedNewPass : $encryptedCurrPass) ."', is_mojang_account='". ($_POST["mojang"] ? '1' : '0') ."', email='". $_POST["email"] ."' WHERE username='". $_POST["username_old"] ."'";
 	if(!mysqli_query($con, $query)) {
-		redirect("../index.php?popup=error&popup_desc=Perfil atualizado!");
+		redirect("../index.php?popup=error&popup_desc=Ocorreu um erro ao atualizar o perfil.");
 		die('Error: '. $con->error);
 	} else {
 		// Update session credentials

@@ -4,9 +4,9 @@
 	 */
 	function redirect($url) {
 		if(headers_sent())
-			echo "<script type=\"application/javascript\">window.location = ". urlEncode($url) ."</script>";
+			echo "<script type=\"application/javascript\">window.location = ". $url ."</script>";
 		else
-			header("Location: ". urlEncode($url));
+			header("Location: ". $url);
 	}
 
 	function showPopup($type, $description) {
@@ -24,7 +24,7 @@
 	session_start();
 	if(!isset($_SESSION["isAdmin"])) $_SESSION["isAdmin"] = false;
 	if(!isset($_SESSION["isAuthenticated"])) $_SESSION["isAuthenticated"] = false;
-	if(!$_SESSION["isAuthenticated"] && (!(basename($_SERVER['PHP_SELF']) == "login.php") && !(basename($_SERVER['PHP_SELF']) == "register.php"))) { // If the user is not authenticated and we're not in the login our register pages, redirect the user to the login page
+	if(!$_SESSION["isAuthenticated"] && (!(basename($_SERVER['PHP_SELF']) == "login.php") && !(basename($_SERVER['PHP_SELF']) == "register.php") && !(basename($_SERVER['PHP_SELF']) == "register_user.php"))) { // If the user is not authenticated and we're not in the login our register pages, redirect the user to the login page
 		redirect('login.php');
 		die();
 	}
@@ -71,4 +71,14 @@
 	function closeDBConnection() {
 		global $db_con;
 		if($db_con != NULL) mysqli_close($db_con);
+	}
+
+	function usernameExists($username) {
+		global $db_database;
+		$con = startDBConnection();
+		$query = "SELECT id FROM $db_database.members WHERE username='". $username ."'";
+
+		$status = mysqli_num_rows(mysqli_query($con, $query)) > 1;
+		closeDBConnection();
+		return $status;
 	}
