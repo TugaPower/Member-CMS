@@ -4,9 +4,9 @@
 	 */
 	function redirect($url) {
 		if(headers_sent())
-			echo "<script type=\"application/javascript\">window.location = ". $url ."</script>";
+			echo "<script type=\"application/javascript\">window.location = ". urlEncode($url) ."</script>";
 		else
-			header("Location: $url");
+			header("Location: ". urlEncode($url));
 	}
 
 	function showPopup($type, $description) {
