@@ -50,10 +50,20 @@
 	closeDBConnection();
 
 	echo "<h2>Tokens</h2><h3>Lista de tokens</h3>";
-	if(sizeof($tokenList) >0) {
-		echo "<table class=\"table table-hover table-striped\"><thead><td>ID</td><td>Token</td><td>Gerado em...</td><td>Expira em...</td><td>Opções</td></thead><tbody>";
-		foreach($tokenList as $current)
-			echo "<tr". ($current["used"] ? " class=\"token_used\"" : "") ."><td>". $current["id"] ."</td><td>". $current["token"] ."</td><td>". $current["generate_date"] ."</td><td>". $current["expire_date"] ."</td><td>Remover</td></tr>";
+	if(sizeof($tokenList) > 0) {
+		$now = new DateTime();
+
+		echo "<table class=\"table table-hover table-striped\"><thead><td>ID</td><td>Token</td><td>Expira</td></thead><tbody>";
+		foreach($tokenList as $current) {
+			$expireDate = new DateTime($current["expire_date"]);
+			if($expireDate >= $now) {
+				$interval = $expireDate->diff($now);
+				$strExpire = $interval->format("%m meses, %d dias, %h horas");
+			} else
+				$strExpire = "token expirado";
+
+			echo "<tr". ($current["used"] ? " class=\"token_used\"" : "") ."><td>". $current["id"] ."</td><td>". $current["token"] ."</td><td>". $strExpire ."</td></tr>";
+		}
 		echo "</tbody></table>";
 	} else
 		echo "Não existem tokens registados.";

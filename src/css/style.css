@@ -268,8 +268,7 @@ ul .player-head p {
 
 /** Admin page **/
 tr.token_used td {
-	color:white;
-	background-color: #c43b3b !important;
+	background-color: #ffc7c7 !important;
 }
 
 /** Stats page **/
