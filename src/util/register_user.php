@@ -14,12 +14,12 @@
 	$con = startConnection();
 
 	// Set the token to used
-	$query = "UPDATE $db_database.tokens SET used=1 WHERE token='". $_POST["token"] ."'";
+	$query = "UPDATE ". DB_NAME .".tokens SET used=1 WHERE token='". $_POST["token"] ."'";
 	mysqli_query($con, $query);
 
 	// Add the user to the db
 	$encryptedPass = md5(sha1(md5($_POST["password"])) . $_POST["password"]);
-	$query = "INSERT INTO $db_database.members (username, password, is_mojang_account, email) VALUES (\"". $_POST["username"] ."\", \"$encryptedPass\", \"". $_POST["mojang"] ."\", \"". $_POST["email"] ."\")";
+	$query = "INSERT INTO ". DB_NAME .".members (username, password, is_mojang_account, email) VALUES (\"". $_POST["username"] ."\", \"$encryptedPass\", \"". $_POST["mojang"] ."\", \"". $_POST["email"] ."\")";
 	if(!mysqli_query($con, $query))
 		redirect("../login.php?popup=error&popup_desc=Ocorreu um erro ao registar.");
 	else

@@ -3,15 +3,13 @@
 
 	$con = startConnection();
 
-	$query = "SELECT username FROM $db_database.members ORDER BY id ASC";
+	$query = "SELECT username FROM ". DB_NAME .".members ORDER BY id ASC";
 	$result = mysqli_query($con, $query) or die('Error: '. $con->error);
 
 	$members = array();
 	while($row = mysqli_fetch_array($result))
 		$members[] = $row["username"];
-
 	mysqli_free_result($result);
-	closeDBConnection();
 
 	echo "<div class=\"selector\">";
 	foreach($members as $current)

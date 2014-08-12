@@ -24,7 +24,7 @@
 	$con = startConnection();
 
 	// Check if the token is valid
-	$query = "SELECT expire_date FROM $db_database.tokens WHERE token='" . $_GET["token"] . "' AND used=0 LIMIT 1";
+	$query = "SELECT expire_date FROM ". DB_NAME .".tokens WHERE token='" . $_GET["token"] . "' AND used=0 LIMIT 1";
 	$result = mysqli_query($con, $query) or die('Error: ' . $con->error);
 
 	if(mysqli_num_rows($result) >= 1) { // The specified token exists and is unsed!

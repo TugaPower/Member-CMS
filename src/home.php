@@ -3,7 +3,7 @@
 
 	$con = startConnection();
 
-	$query = "SELECT * FROM $db_database.news ORDER BY date DESC LIMIT 5";
+	$query = "SELECT * FROM ". DB_NAME .".news ORDER BY date DESC LIMIT 5";
 	$result = mysqli_query($con, $query) or die('Error: '. $con->error);
 
 	$news = array();

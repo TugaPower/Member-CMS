@@ -12,7 +12,7 @@
 	}
 
 	$con = startConnection();
-	$query = "INSERT INTO $db_database.tokens (token, expire_date) VALUES (\"". $_POST["token"] ."\", \"". $_POST["expire_date"] ."\")";
+	$query = "INSERT INTO ". DB_NAME .".tokens (token, expire_date) VALUES (\"". $_POST["token"] ."\", \"". $_POST["expire_date"] ."\")";
 	if(!mysqli_query($con, $query)) {
 		redirect("../index.php?popup=error&popup_desc=Ocorreu um erro ao adicionar o token!");
 		die('Error: '. $con->error);

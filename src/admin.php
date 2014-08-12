@@ -10,7 +10,7 @@
 	 * MEMBERS
 	 */
 	$con = startConnection();
-	$query = "SELECT * FROM $db_database.members ORDER BY id ASC";
+	$query = "SELECT * FROM ". DB_NAME .".members ORDER BY id ASC";
 	$result = mysqli_query($con, $query) or die('Error: '. $con->error);
 
 	$memberList = array();
@@ -39,7 +39,7 @@
 	/*
 	 * TOKENS
 	 */
-	$query = "SELECT * FROM $db_database.tokens ORDER BY id ASC";
+	$query = "SELECT * FROM ". DB_NAME .".tokens ORDER BY id ASC";
 	$result = mysqli_query($con, $query) or die('Erro: '. $con->error);
 
 	$tokenList = array();

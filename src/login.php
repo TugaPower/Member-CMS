@@ -12,7 +12,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 	$encryptedPassword = md5(sha1(md5($_POST["password"])) . $_POST["password"]);
 
 	$con = startConnection();
-	$query = "SELECT is_admin,is_mojang_account,email FROM $db_database.members WHERE username='" . $_POST["username"] . "' AND password='$encryptedPassword' LIMIT 1";
+	$query = "SELECT is_admin,is_mojang_account,email FROM ". DB_NAME .".members WHERE username='" . $_POST["username"] . "' AND password='$encryptedPassword' LIMIT 1";
 	$result = mysqli_query($con, $query) or die('Error: ' . $con->error);
 
 	if(mysqli_num_rows($result) >= 1) { // Check if got any result
