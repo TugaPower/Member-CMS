@@ -11,11 +11,11 @@ if (isset($_SESSION["isAuthenticated"]) && $_SESSION["isAuthenticated"]) {
 if (isset($_POST["username"]) && isset($_POST["password"])) {
 	$encryptedPassword = md5(sha1(md5($_POST["password"])) . $_POST["password"]);
 
-	$con = startDBConnection();
+	$con = startConnection();
 	$query = "SELECT is_admin,is_mojang_account,email FROM $db_database.members WHERE username='" . $_POST["username"] . "' AND password='$encryptedPassword' LIMIT 1";
 	$result = mysqli_query($con, $query) or die('Error: ' . $con->error);
 
-	if (mysqli_num_rows($result) >= 1) { // Check if got any result
+	if(mysqli_num_rows($result) >= 1) { // Check if got any result
 		$data = mysqli_fetch_array($result);
 		mysqli_free_result($result);
 
@@ -32,7 +32,6 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 	} else {
 		showPopup("error", "Username e/ou senha incorretos!<br>");
 	}
-	closeDBConnection();
 }
 
 if (isset($_GET["exited"])) showPopup("success", "Foste deslogado com sucesso!");

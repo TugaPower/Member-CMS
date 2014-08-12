@@ -11,7 +11,7 @@
 		die();
 	}
 
-	$con = startDBConnection();
+	$con = startConnection();
 
 	// Set the token to used
 	$query = "UPDATE $db_database.tokens SET used=1 WHERE token='". $_POST["token"] ."'";
@@ -24,5 +24,3 @@
 		redirect("../login.php?popup=error&popup_desc=Ocorreu um erro ao registar.");
 	else
 		redirect("../login.php?popup=success&popup_desc=Podes agora iniciar sessão!");
-
-	closeDBConnection();

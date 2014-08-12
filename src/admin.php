@@ -9,7 +9,7 @@
 	/*
 	 * MEMBERS
 	 */
-	$con = startDBConnection();
+	$con = startConnection();
 	$query = "SELECT * FROM $db_database.members ORDER BY id ASC";
 	$result = mysqli_query($con, $query) or die('Error: '. $con->error);
 
@@ -40,14 +40,14 @@
 	 * TOKENS
 	 */
 	$query = "SELECT * FROM $db_database.tokens ORDER BY id ASC";
-	$result = mysqli_query($con, $query) or die('Error: '. $con->error);
+	$result = mysqli_query($con, $query) or die('Erro: '. $con->error);
 
 	$tokenList = array();
 	while($row = mysqli_fetch_array($result))
 		$tokenList[] = $row;
 
 	mysqli_free_result($result);
-	closeDBConnection();
+	mysqli_close($con);
 
 	echo "<h2>Tokens</h2><h3>Lista de tokens</h3>";
 	if(sizeof($tokenList) > 0) {

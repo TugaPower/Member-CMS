@@ -2,7 +2,7 @@
 	include("includes/header.php");
 	date_default_timezone_set("UTC"); // The database stores its timestamps in UTC
 
-	if(!isset($_GET["token"])) { // Mostra o pedido apra inserir um token
+	if(!isset($_GET["token"])) { // Mostra o pedido para inserir um token
 		?>
 		<form name="token" class="form-horizontal form-size" action="register.php" method="get">
 			<div class="form-group">
@@ -21,7 +21,7 @@
 		die();
 	}
 
-	$con = startDBConnection();
+	$con = startConnection();
 
 	// Check if the token is valid
 	$query = "SELECT expire_date FROM $db_database.tokens WHERE token='" . $_GET["token"] . "' AND used=0 LIMIT 1";
@@ -91,7 +91,6 @@
 		redirect("login.php?popup=error&popup_desc=O token <b>". $_GET["token"] ."</b> é inválido ou já foi usado.");
 		die();
 	}
-	closeDBConnection();
 ?>
 <script>
 	function checkForm() {

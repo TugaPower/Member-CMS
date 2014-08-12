@@ -11,7 +11,7 @@
 		die();
 	}
 
-	$con = startDBConnection();
+	$con = startConnection();
 	$encryptedCurrPass = md5(sha1(md5($_POST["current_password"])) . $_POST["current_password"]);
 	$encryptedNewPass = md5(sha1(md5($_POST["password"])) . $_POST["password"]);
 

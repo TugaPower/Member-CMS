@@ -1,7 +1,7 @@
 <?php
 	include("utils.php");
 
-	$con = startDBConnection();
+	$con = startConnection();
 
 	$query = "SELECT username FROM $db_database.members ORDER BY id ASC";
 	$result = mysqli_query($con, $query) or die('Error: '. $con->error);

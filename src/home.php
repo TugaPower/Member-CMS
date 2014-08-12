@@ -1,7 +1,7 @@
 <?php
 	include("utils.php");
 
-	$con = startDBConnection();
+	$con = startConnection();
 
 	$query = "SELECT * FROM $db_database.news ORDER BY date DESC LIMIT 5";
 	$result = mysqli_query($con, $query) or die('Error: '. $con->error);
@@ -17,7 +17,6 @@
 		$news[] = $entry;
 	}
 	mysqli_free_result($result);
-	closeDBConnection();
 
 	foreach($news as $current)
 		echo "<div class=\"news\"><h1>". $current["title"] ."</h1>". $current["body"] ."<br><span class=\"author\">por ". $current["author"] ." em ". $current["date"] ."</span></div>";

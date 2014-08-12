@@ -44,7 +44,6 @@
 	$db_username = "tugapower";
 	$db_password = "biscoitos123";
 	$db_database = "tugapower";
-	$db_con = NULL; // Used to store temporary connections
 
 	/**
 	 * Starts a new connection with the database server.
@@ -52,33 +51,18 @@
 	 *
 	 * @return mysqli   The database connection
 	 */
-	function startDBConnection() {
-		global $db_con, $db_host, $db_username, $db_password, $db_database;
-		if($db_con == NULL) {
-			$db_con = mysqli_connect($db_host, $db_username, $db_password, $db_database);
-			if(mysqli_connect_errno()) {
-				echo "Failed to connect to MySQL: ". mysqli_connect_error();
-				return NULL;
-			}
-			if($db_con != null) mysqli_query($db_con, "SET NAMES 'utf8'");
-		}
-		return $db_con;
-	}
+	function startConnection() {
+		global $db_host, $db_username, $db_password, $db_database;
+		$db_con = mysqli_connect($db_host, $db_username, $db_password, $db_database);
+		if(mysqli_connect_errno())
+			die("Ocorreu um erro ao conectar à base de dados (". mysqli_connect_errno(). " - ". mysqli_connect_error() .")");
 
-	/**
-	 * Closes any existing connection.
-	 */
-	function closeDBConnection() {
-		global $db_con;
-		if($db_con != NULL) mysqli_close($db_con);
+		mysqli_query($db_con, "SET NAMES 'utf8'");
+		return $db_con;
 	}
 
 	function usernameExists($username) {
 		global $db_database;
-		$con = startDBConnection();
 		$query = "SELECT id FROM $db_database.members WHERE username='". $username ."'";
-
-		$status = mysqli_num_rows(mysqli_query($con, $query)) > 1;
-		closeDBConnection();
-		return $status;
+		return mysqli_num_rows(mysqli_query(startConnection(), $query)) > 0;
 	}
