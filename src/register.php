@@ -1,5 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+<?php include("includes/header.php") ?>
+</head>
+<body>
 <?php
-	include("includes/header.php");
 	date_default_timezone_set("UTC"); // The database stores its timestamps in UTC
 
 	if(!isset($_GET["token"])) { // Mostra o pedido para inserir um token
@@ -102,4 +107,6 @@
 		return true;
 	}
 </script>
-<?php include("includes/footer.php");
+<?php include("includes/footer.php") ?>
+</body>
+</html>

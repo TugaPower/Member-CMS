@@ -6,7 +6,7 @@
 	 * Constants
 	 */
 	define("WEBSITE_TITLE", "TugaPower");
-	define("WEBSITE_VERSION", "0.1");
+	define("WEBSITE_VERSION", "1.0");
 
 	define("DB_HOST", "localhost");
 	define("DB_USERNAME", "tugapower");

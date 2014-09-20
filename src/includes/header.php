@@ -1,7 +1,4 @@
 <?php include("./utils.php") ?>
-<!DOCTYPE html>
-<html>
-<head>
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Language" content="pt">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,5 +24,3 @@
 	<!-- jQuery (need to be loaded before the end of the page because some pages use it's functionality earlier) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<?php if(!(basename($_SERVER['PHP_SELF']) == "login.php")) echo "<script src=\"js/util.js\"></script>" ?> <!-- Import our utility script; and import it only when we're not on the login page! -->
-</head>
-<body>

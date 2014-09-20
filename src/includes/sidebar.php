@@ -15,7 +15,7 @@
 	<div class="player-head">
 		<?php
 			if(isset($_SESSION["email"]) && !empty(isset($_SESSION["email"])))
-				echo "<img src=\"https://www.gravatar.com/avatar/". md5(strToLower(trim($_SESSION["email"]))) ."?size=120?d=". urlEncode("https://minotar.net/helm/". $_SESSION["username"] ."/120.png") ."\" class=\"img-circle\">";
+				echo "<img src=\"https://www.gravatar.com/avatar/". md5(strToLower(trim($_SESSION["email"]))) ."?size=120&d=". urlEncode("https://minotar.net/helm/". $_SESSION["username"] ."/120.png") ."\" class=\"img-circle\">";
 			else
 				echo "<img src=\"https://minotar.net/helm/". $_SESSION["username"] ."/120.png\" class=\"img-circle\">";
 		?>

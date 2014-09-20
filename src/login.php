@@ -1,6 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+<?php include("includes/header.php") ?>
+</head>
+<body>
 <?php
-include("includes/header.php");
-
 // If already logged in, redirect to the main page
 if (isset($_SESSION["isAuthenticated"]) && $_SESSION["isAuthenticated"]) {
 	redirect("index.php");
